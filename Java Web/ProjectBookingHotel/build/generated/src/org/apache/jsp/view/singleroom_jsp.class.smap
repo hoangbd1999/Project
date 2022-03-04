@@ -1,0 +1,16 @@
+SMAP
+singleroom_jsp.java
+JSP
+*S JSP
+*F
++ 0 singleroom.jsp
+view/singleroom.jsp
+*L
+5,34:44
+39:78,3
+40,71:81
+111:152,3
+112,8:155
+120:163,3
+121,4:166
+*E

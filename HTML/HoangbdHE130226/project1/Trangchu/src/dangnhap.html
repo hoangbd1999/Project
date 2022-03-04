@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en" dir="ltr">
+    <head>
+        <title>ĐăngNhập</title>
+        
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" >
+            function xlDangNhap(ten, mkhau)
+            {
+                if (ten.toLowerCase() == "buidinhhoang")
+                    if (mkhau == "Dunglun95"){
+                        
+                        window.open("Trangchu.html");
+                        alert('Sign in successfully');
+                   }else
+                        alert('Sai mật khẩu');
+                else
+                    alert('Do not user');
+            }
+        </script>
+    </head>
+    <body style="margin: 0;">
+        
+        <div class="login-box">
+            <h1>Login</h1>
+            <div class="textbox">
+                <i class="fas fa-user"></i>
+                <input type="text" id="Ten" value="" placeholder="Username">
+            </div>
+
+            <div class="textbox">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="txtPass" value="" placeholder="Password">
+            </div>
+
+            <input type="button" class="btn" id="login" title="Sign in" value="Sign in" Onclick = "xlDangNhap(Ten.value, txtPass.value);">
+        </div>
+     
+    </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Game</title>
+        <meta charset="UTF-8">
+           <link rel="icon" href="images/logoweb2.jpg" type="image/x-ico"/>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table, tr, td {
+                border: 1px solid white;
+                border-collapse: collapse;
+            }
+            td{
+                height: 30px;
+                width: 30px;
+                text-align: center;
+            }
+            .blue{
+                background-color: blueviolet;
+            }
+            .red{
+                background-color: red;
+            }
+            #body{
+                font-family: sans-serif;
+/*                background: url(4.jpg) no-repeat;*/
+                background: none;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body id="body">
+        <p style="color:white;">Input N = <input style="color: black;" type="number" min="1" max="20" id="inputN">
+            <button style="color:black;" onclick="myFun()">Draw</button>
+        </p>
+        <div id="noideve"></div>
+        <p id="report"></p>
+          <div id="ttgiaovien">
+            <script>
+                           
+            function myFun() {
+                document.getElementById("report").innerHTML = "";
+                flag = true;
+                n = document.getElementById("inputN").value;
+                var s = "<table>";
+                for (var i = 0; i < n; i++) {
+                    s = s + "<tr>";
+                    for (var j = 0; j < n; j++) {
+//                        if ((i + j) % 2 == 0)
+                        s = s + "<td id = 'a" + (i * n + j) + "'onclick = 'xuly(" + i + "," + j + ")'></td>";
+
+//                        else
+//                            s = s + "<td class='red'></td>";
+//                        s += "<td class = '" + ((i + j) % 2 ? "red" : "blue") + "'></td>";
+                    }
+                    s = s + "</tr>";
+                }
+                s = s + "</table>";
+                document.getElementById("noideve").innerHTML = s;
+                p = 0;
+            }
+            function xuly(x, y) {
+                if (p == 1)
+                    return 0;
+                var vitri = document.getElementById("a" + (x * n + y));
+                if (vitri.innerHTML == 0) {
+                    vitri.innerHTML = flag ? "<span style='color:red'>X</span>" : "<span style='color:blue'>O</span>";
+                    flag = !flag;
+                }
+                if (checkWin(x, y)) {
+                    document.getElementById("report").innerHTML = flag ? "<span style='color:white'>O win</span>" : "<span style='color:white'>X win</span>";
+                    p = 1;
+                }
+            }
+
+          
+            function checkWin(x, y) {
+                var count = 0;
+                var vitri = document.getElementById("a" + (x * n + y));
+                var m = vitri.innerHTML;
+
+                var ngang = 1, doc = 1, cheo1 = 1, cheo2 = 1;
+
+                count = 0;
+                for (var i = 1; i < 5; i++) {
+                    if (x + i >= n)
+                        break;
+                    var k = document.getElementById("a" + ((x + i) * n + y)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                for (var i = 1; i < 5; i++) {
+                    if (x - i < 0)
+                        break;
+                    var k = document.getElementById("a" + ((x - i) * n + y)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                if (count != 4)
+                    doc = 0;
+
+                count = 0;
+                for (var i = 1; i < 5; i++) {
+                    if (y + i >= n)
+                        break;
+                    var k = document.getElementById("a" + (x * n + y + i)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                for (var i = 1; i < 5; i++) {
+                    if (y - i < 0)
+                        break;
+                    var k = document.getElementById("a" + (x * n + y - i)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                if (count != 4)
+                    ngang = 0;
+
+                count = 0;
+                for (var i = 1; i < 5; i++) {
+                    if (x + i >= n || y + i >= n)
+                        break;
+                    var k = document.getElementById("a" + ((x + i) * n + y + i)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                for (var i = 1; i < 5; i++) {
+                    if (x - i < 0 || y - i < 0)
+                        break;
+                    var k = document.getElementById("a" + ((x - i) * n + y - i)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                if (count != 4)
+                    cheo1 = 0;
+
+                count = 0;
+                for (var i = 1; i < 5; i++) {
+                    if (x + i >= n || y - i < 0)
+                        break;
+                    var k = document.getElementById("a" + ((x + i) * n + y - i)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                for (var i = 1; i < 5; i++) {
+                    if (x - i < 0 || y + i >= n)
+                        break;
+                    var k = document.getElementById("a" + ((x - i) * n + y + i)).innerHTML;
+                    if (k === m)
+                        count++;
+                    else
+                        break;
+                }
+                if (count != 4)
+                    cheo2 = 0;
+
+                if (ngang || doc || cheo1 || cheo2)
+                    return true;
+                else
+                    return false;
+            }
+
+        </script>
+        <div>
+            <p style="color:white;">Mời các bạn share phim</p>
+        </div>
+
+        </div>      
+    </body>
+</html>
+

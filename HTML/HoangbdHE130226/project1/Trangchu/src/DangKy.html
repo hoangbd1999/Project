@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ĐăngKý</title>
+        <link rel="stylesheet" href="Default.css" type="text/css">
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script type="text/javascript" src="Checkdk.js"></script>
+    </head>
+    
+<body >
+   
+    <section style="width: 1500px;float:right;" >
+           
+            <p style="color:#e11515;font-weight: bold;font-size: 31px; padding-top: 30px;padding-left: 580px;margin-bottom: 10px;">Đăng ký thành viên mới</p>
+            <table align="center" style="font-weight: bold;padding-top: 10px;padding-left: 550px;margin-bottom: 10px;">
+                <tr style="height: 80px;color:white;">
+                    <td><label for="username">Tên đăng nhập</label></td>
+                    <td><input type="text" id="dnhap" style="width: 280px; height: 25px;"></td>
+                </tr>                                            
+                <tr  style="height: 10px;color:white;">
+                    <td> <label for="password">Mật khẩu(*)</label></td>
+                    <td><input type="password" id="mkhau" style="width: 280px; height: 25px;"></td>
+                </tr>                                             
+                <tr  style="height: 80px;color:white;">
+                    <td><label for="confirm_pass">Nhập lại Mật khẩu(*)</label></td>
+                    <td><input type="password" id="remkhau" style="width: 280px; height: 25px;"></td>
+                </tr>                                             
+                <tr  style="height: 10px;color:white;">
+                    <td> <label for="lastname">Họ và tên:</label></td>
+                    <td><input type="text" id="hoten" style="width: 280px; height: 25px;"></td>
+                </tr>                                             
+                <tr  style="height: 80px;color:white;">
+                    
+                   <td>Giới tính:<td><input type="radio" id="gtinh" style="float: left">Nam<input type="radio" name="gioitinh">Nữ</td>
+                    
+                </tr>
+                <tr  style="height: 10px;color:white;">
+                    <td><p>Ngày sinh: </p></td>
+                    <td><input type="date" id="datepicker" style="width: 170px; height: 25px;"></td>
+                </tr>
+                <tr  style="height: 80px;color:white;">
+                    <td><p>Nghề nghiệp: </p></td>
+                    <td>
+                        <select id="nnghiep" style="width: 270px;height: 25px;">
+                            <option value="hay ủng hộ website">hay ủng hộ website</option>
+                            <option value="thành viên mới">thành viên mới</option>
+                            <option value="thành viên lâu">thành viên lâu</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr  style="height: 10px;color:white;">
+                    <td> <label for="email">Email</label></td>
+                    <td><input type="email" id="email" style="width: 280px; height: 25px;"></td>
+                </tr>
+                <tr  style="height: 80px;color:white;">
+                    <td> <label for="phone">Số điện thoại</label></td>
+                    <td><input type="text" id="dthoai" style="width: 280px; height: 25px;"></td>
+                </tr>
+                <tr  style="height: 10px;color:white;">
+                    <td><p>Ghi chú: </p></td>
+                    <td><input type="text" name="ghichu" style="width: 280px; height: 80px;"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;padding-left:130px;"> <label id="bottom"></label>
+                        <input type="submit" name="action" id="dangky" onclick="xlDangky();" value="Đăng ký"></td>
+                                          
+                </tr>
+            </table>
+            <p style="margin: 0;color: white;font-weight: normal;font-size: 14px; padding-top: 10px;padding-left: 520px;margin-bottom: 10px;margin-top: -50px;">[thông tin xác nhận]</p>
+         
+    </section>
+   
+    
+   
+    <!-- end page -->
+    <!-- start Footer-->
+  
+</body>   
+</html>
